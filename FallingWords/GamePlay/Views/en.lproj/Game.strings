@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Score: 1"; ObjectID = "5hz-nU-S5x"; */
+"5hz-nU-S5x.text" = "Score: 1";
+
+/* Class = "UILabel"; text = "Lives: 1"; ObjectID = "I2K-Qk-OCl"; */
+"I2K-Qk-OCl.text" = "Lives: 1";
+
+/* Class = "UIButton"; normalTitle = "Wrong"; ObjectID = "JU8-tX-uJl"; */
+"JU8-tX-uJl.normalTitle" = "Wrong";
+
+/* Class = "UILabel"; text = "escuela primaria"; ObjectID = "Sk6-WV-xXD"; */
+"Sk6-WV-xXD.text" = "escuela primaria";
+
+/* Class = "UILabel"; text = "primary school"; ObjectID = "pUb-e1-rCC"; */
+"pUb-e1-rCC.text" = "primary school";
+
+/* Class = "UIButton"; normalTitle = "Right"; ObjectID = "uhu-bS-7g4"; */
+"uhu-bS-7g4.normalTitle" = "Right";
