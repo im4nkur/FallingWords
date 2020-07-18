@@ -35,7 +35,9 @@ class GameViewModel {
     }
 
     func fetchAllWords() {
-        repo.getAllWords().subscribe(onSuccess: { (words) in
+        repo.getAllWords()
+        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .subscribe(onSuccess: { (words) in
             self.allWords = words
             self.isDataLoaded.accept(true)
         }) { (error) in

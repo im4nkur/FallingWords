@@ -52,7 +52,7 @@
 		1619F93E24C18F2300637621 /* WordsNetworkRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsNetworkRepo.swift; sourceTree = "<group>"; };
 		1619F94024C18F7500637621 /* WordsLocalRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsLocalRepo.swift; sourceTree = "<group>"; };
 		1619F94224C1AA7400637621 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
-		1640565024C14E19002B3DA6 /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1640565024C14E19002B3DA6 /* Falling Words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Falling Words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1640565324C14E19002B3DA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1640565524C14E19002B3DA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1640565724C14E19002B3DA6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		1640565124C14E19002B3DA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1640565024C14E19002B3DA6 /* FallingWords.app */,
+				1640565024C14E19002B3DA6 /* Falling Words.app */,
 				1640566624C14E23002B3DA6 /* FallingWordsTests.xctest */,
 			);
 			name = Products;
@@ -274,7 +274,7 @@
 				1619F92C24C1880000637621 /* RxCocoa */,
 			);
 			productName = FallingWords;
-			productReference = 1640565024C14E19002B3DA6 /* FallingWords.app */;
+			productReference = 1640565024C14E19002B3DA6 /* Falling Words.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1640566524C14E23002B3DA6 /* FallingWordsTests */ = {
@@ -547,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arya.FallingWords;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Falling Words";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -564,7 +564,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arya.FallingWords;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Falling Words";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

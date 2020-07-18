@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1640564F24C14E19002B3DA6"
-               BuildableName = "FallingWords.app"
+               BuildableName = "Falling Words.app"
                BlueprintName = "FallingWords"
                ReferencedContainer = "container:FallingWords.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1640564F24C14E19002B3DA6"
-            BuildableName = "FallingWords.app"
+            BuildableName = "Falling Words.app"
             BlueprintName = "FallingWords"
             ReferencedContainer = "container:FallingWords.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1640564F24C14E19002B3DA6"
-            BuildableName = "FallingWords.app"
+            BuildableName = "Falling Words.app"
             BlueprintName = "FallingWords"
             ReferencedContainer = "container:FallingWords.xcodeproj">
          </BuildableReference>
@@ -90,7 +90,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1640564F24C14E19002B3DA6"
-            BuildableName = "FallingWords.app"
+            BuildableName = "Falling Words.app"
             BlueprintName = "FallingWords"
             ReferencedContainer = "container:FallingWords.xcodeproj">
          </BuildableReference>
