@@ -22,7 +22,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var optionWordTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var resultImage: UIImageView!
-
+    @IBOutlet weak var loader: UIImageView!
+    
     // MARK: Properties
     var viewModel: GameViewModel!
     private let disposeBag = DisposeBag()
@@ -42,6 +43,7 @@ class GameViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        showLoader(true)
         viewModel.fetchAllWords()
     }
 
@@ -170,7 +172,14 @@ class GameViewController: UIViewController {
             .subscribe(onNext: { [weak self] (error) in
                 guard let self = self else { return }
                 self.showAlert(forError: error)
+                self.showLoader(false)
             }).disposed(by: disposeBag)
+
+        viewModel.isDataLoaded
+            .observeOn(MainScheduler.instance)
+            .subscribe { _ in
+                self.showLoader(false)
+        }.disposed(by: disposeBag)
     }
 
     //MARK: Error Alert
@@ -181,4 +190,11 @@ class GameViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+
+    private func showLoader(_ show: Bool) {
+        view.isUserInteractionEnabled = !show
+        loader.isHidden = !show
+        playButton.isHidden = show
+    }
+
 }

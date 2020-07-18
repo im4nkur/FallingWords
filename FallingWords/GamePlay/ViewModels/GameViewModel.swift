@@ -26,6 +26,7 @@ class GameViewModel {
     let currentOption = BehaviorRelay<Word?>(value: nil)
     let quizResult: BehaviorRelay<QuizResult>
     let error = PublishRelay<Error>()
+    let isDataLoaded = PublishRelay<Bool>()
 
     //MARK: Initialiser
     init(repo: WordsRepo) {
@@ -36,6 +37,7 @@ class GameViewModel {
     func fetchAllWords() {
         repo.getAllWords().subscribe(onSuccess: { (words) in
             self.allWords = words
+            self.isDataLoaded.accept(true)
         }) { (error) in
             self.error.accept(error)
         }.disposed(by: disposeBag)

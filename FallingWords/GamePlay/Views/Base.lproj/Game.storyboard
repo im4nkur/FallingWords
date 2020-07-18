@@ -104,18 +104,25 @@
                                     <constraint firstAttribute="height" constant="128" id="isO-2n-ZEB"/>
                                 </constraints>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loader" translatesAutoresizingMaskIntoConstraints="NO" id="WU9-fA-rMf">
+                                <rect key="frame" x="133.66666666666669" y="304" width="146.66666666666669" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WU9-fA-rMf" firstAttribute="top" secondItem="0Mn-oa-VQo" secondAttribute="top" id="3Nd-94-YPq"/>
                             <constraint firstItem="pVS-wg-o9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="72B-d0-Bwg"/>
                             <constraint firstItem="XDK-ct-cee" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8be-T9-AcQ"/>
+                            <constraint firstItem="WU9-fA-rMf" firstAttribute="trailing" secondItem="0Mn-oa-VQo" secondAttribute="trailing" id="93p-qb-Tzr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="INx-30-glx" secondAttribute="trailing" constant="20" id="E1A-DF-0f6"/>
                             <constraint firstItem="0Mn-oa-VQo" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HRZ-4V-Phm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pUb-e1-rCC" secondAttribute="trailing" constant="20" id="OhT-eB-YHw"/>
                             <constraint firstItem="Sk6-WV-xXD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="atP-IJ-ouU"/>
+                            <constraint firstItem="WU9-fA-rMf" firstAttribute="leading" secondItem="0Mn-oa-VQo" secondAttribute="leading" id="eWF-gs-SQN"/>
                             <constraint firstItem="ByA-Fl-I1b" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="hHF-pd-8z4"/>
                             <constraint firstItem="ByA-Fl-I1b" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="iPO-8d-WAk"/>
                             <constraint firstItem="ByA-Fl-I1b" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jW1-TE-BDN"/>
+                            <constraint firstItem="WU9-fA-rMf" firstAttribute="bottom" secondItem="0Mn-oa-VQo" secondAttribute="bottom" id="jyW-GG-mlg"/>
                             <constraint firstItem="pUb-e1-rCC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="kWO-PG-TPP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pVS-wg-o9q" secondAttribute="bottom" constant="20" id="m5f-5A-cc2"/>
                             <constraint firstItem="ByA-Fl-I1b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mn3-ae-VK2"/>
@@ -132,6 +139,7 @@
                     </view>
                     <connections>
                         <outlet property="currentWordLabel" destination="pUb-e1-rCC" id="Bkn-KN-8XT"/>
+                        <outlet property="loader" destination="WU9-fA-rMf" id="E8a-WO-45H"/>
                         <outlet property="optionWordLabel" destination="Sk6-WV-xXD" id="KC0-Ib-RwM"/>
                         <outlet property="optionWordTopConstraint" destination="sFd-8n-iZT" id="IAc-BA-TuF"/>
                         <outlet property="playButton" destination="XDK-ct-cee" id="iwu-A1-Bbx"/>
@@ -217,6 +225,7 @@
     <resources>
         <image name="FallBackground" width="2880" height="1800"/>
         <image name="GameOver" width="1280" height="1280"/>
+        <image name="Loader" width="512" height="512"/>
         <image name="Return" width="1750" height="1750"/>
         <image name="play" width="200" height="200"/>
     </resources>
