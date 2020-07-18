@@ -98,6 +98,13 @@ class GameViewController: UIViewController {
         self.playingState(false)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == gameOverSegueID {
+            let gameOverController = segue.destination as? GameOverViewController
+            gameOverController?.score = viewModel.quizResult.value.score
+        }
+    }
+
     private func handleResult(_ result: QuizResult) {
         remainingLivesLabel.text = "LIVES: \(result.lives)"
         scoreLabel.text = "SCORE: \(result.score)"

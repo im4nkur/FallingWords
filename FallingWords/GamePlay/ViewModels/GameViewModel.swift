@@ -11,9 +11,9 @@ import RxSwift
 import RxRelay
 
 struct QuizResult {
-    let isCorrect: Bool?
-    let lives: Int
-    let score: Int
+    var isCorrect: Bool? = nil
+    var lives: Int = 3
+    var score: Int = 0
 }
 
 class GameViewModel {
@@ -30,7 +30,7 @@ class GameViewModel {
     //MARK: Initialiser
     init(repo: WordsRepo) {
         self.repo = repo
-        self.quizResult = .init(value: QuizResult(isCorrect: nil, lives: 3, score: 0))
+        self.quizResult = .init(value: QuizResult())
     }
 
     func fetchAllWords() {
@@ -48,6 +48,8 @@ class GameViewModel {
         getRandomOption(forWord: randomWord)
     }
 
+    /// Check if given answer is correct or not.
+    /// - Parameter rightSelected: User's selection.
     func checkAnswer(_ rightSelected: Bool) {
         guard let word = currentWord.value,
             let option = currentOption.value
@@ -62,6 +64,8 @@ class GameViewModel {
 
     // MARK: Private Methods
 
+    /// Update result based on the correctness of user's selection.
+    /// - Parameter isCorrect: Answer based on user's selection.
     private func updateResult(isCorrect: Bool) {
         let currentLives = isCorrect ? quizResult.value.lives : quizResult.value.lives - 1
         let score = isCorrect ? quizResult.value.score + 1: quizResult.value.score
@@ -73,10 +77,13 @@ class GameViewModel {
     private func resetGame() {
         currentWord.accept(nil)
         currentOption.accept(nil)
-        let result = QuizResult(isCorrect: nil, lives: 3, score: 0)
-        quizResult.accept(result)
+        quizResult.accept(QuizResult())
     }
 
+    /// Get random word to display as an option on screen.
+    /// - Parameter current: Current word displayed on screen.
+    ///  It will be added to the array so that when random word
+    ///  is choosen it will have good probablity.
     private func getRandomOption(forWord current: Word) {
         precondition(!allWords.isEmpty, "There are no words available")
         let noOfItems =  allWords.count <= 5 ? 1 : 3

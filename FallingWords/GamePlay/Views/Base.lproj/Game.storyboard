@@ -181,11 +181,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score: 0" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNL-nC-sYB">
+                                <rect key="frame" x="20" y="50" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <color key="textColor" red="0.26502057909965515" green="0.070260725915431976" blue="0.30344599485397339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gxz-UB-LB3" firstAttribute="top" secondItem="z0Y-q9-Kaa" secondAttribute="bottom" id="3Pc-KP-MK3"/>
+                            <constraint firstItem="exM-Qj-oTI" firstAttribute="trailing" secondItem="RNL-nC-sYB" secondAttribute="trailing" constant="20" id="Ao9-Mk-yDv"/>
                             <constraint firstItem="EuI-BU-TAx" firstAttribute="top" secondItem="jqx-I3-gGk" secondAttribute="top" id="FaR-bz-cXL"/>
+                            <constraint firstItem="RNL-nC-sYB" firstAttribute="leading" secondItem="exM-Qj-oTI" secondAttribute="leading" constant="20" id="H5N-Bg-Yhe"/>
+                            <constraint firstItem="RNL-nC-sYB" firstAttribute="top" secondItem="exM-Qj-oTI" secondAttribute="top" constant="50" id="Nun-iW-DNi"/>
                             <constraint firstItem="gxz-UB-LB3" firstAttribute="centerX" secondItem="z0Y-q9-Kaa" secondAttribute="centerX" id="Pxe-tj-PrE"/>
                             <constraint firstItem="z0Y-q9-Kaa" firstAttribute="centerX" secondItem="EuI-BU-TAx" secondAttribute="centerX" id="SEY-Pc-WIH"/>
                             <constraint firstItem="EuI-BU-TAx" firstAttribute="leading" secondItem="jqx-I3-gGk" secondAttribute="leading" id="czn-L2-0we"/>
@@ -197,6 +206,7 @@
                     </view>
                     <connections>
                         <outlet property="playButton" destination="gxz-UB-LB3" id="fcm-uG-GQ9"/>
+                        <outlet property="scoreLabel" destination="RNL-nC-sYB" id="Wzd-ct-PeL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k8-Dz-Y9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
