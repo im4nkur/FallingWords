@@ -94,8 +94,8 @@ class GameViewController: UIViewController {
 
     // MARK: Game result handling
     private func handleGameOver() {
-        self.playingState(false)
         self.performSegue(withIdentifier: gameOverSegueID, sender: nil)
+        self.playingState(false)
     }
 
     private func handleResult(_ result: QuizResult) {

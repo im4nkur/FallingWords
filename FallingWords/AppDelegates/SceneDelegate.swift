@@ -21,8 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let rootVC = storyboard.instantiateViewController(identifier: String(describing: GameViewController.self)) as? GameViewController else {
             return
         }
+        // Initialised this viewmodel here just to show that it should be injected as a dependency to viewcontroller.
+        // This could have been a part of Router or Coordinator that takes care of assembling the app flow.
         let repo = WordsLocalRepo() // Can be switch with Network Repo
-        let viewModel = GameViewModel(repo: repo) // View Model should come as a dependency to this view controller.
+        let viewModel = GameViewModel(repo: repo)
         rootVC.viewModel = viewModel
         self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
