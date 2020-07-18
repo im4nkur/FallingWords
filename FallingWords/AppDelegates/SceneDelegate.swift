@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         // Initialised this viewmodel here just to show that it should be injected as a dependency to viewcontroller.
         // This could have been a part of Router or Coordinator that takes care of assembling the app flow.
-        let repo = WordsLocalRepo() // Can be switch with Network or any other Repo.
+        let networkManager = NetworkManager(baseUrl: .base)
+        let repo = WordsNetworkRepo(networkManager: networkManager)//WordsLocalRepo() // Can be switch with any other Repo.
         let viewModel = GameViewModel(repo: repo)
         rootVC.viewModel = viewModel
         self.window?.rootViewController = rootVC

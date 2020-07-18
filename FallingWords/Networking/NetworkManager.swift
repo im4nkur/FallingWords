@@ -9,34 +9,83 @@
 import Foundation
 import RxSwift
 
-enum DataError: Error {
-    case unableToDecode
-    case noElements
-    case timeout
-    case dataNotFound
+protocol NetworkManagerType {
+    func getRequest<ResponseType: Decodable>(path: EndPoint, parameters: [String: String]) -> Single<ResponseType>
 }
 
-extension DataError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .unableToDecode:
-            return "Could not decode json data. Please check the json file."
-        case .noElements:
-            return "No elements available. Please add some words in the data source."
-        case .timeout:
-            return "Operation timed out. Please try again."
-        case .dataNotFound:
-            return "Data not found. Please check if the data is available at given URL."
+class NetworkManager: NetworkManagerType {
+
+    var task: URLSessionTask?
+    let baseUrl: EndPoint
+    var headers: [String: String] = [:]
+
+    init(baseUrl: EndPoint, headers: [String: String] = [:]) {
+        self.baseUrl = baseUrl
+        self.headers["Content-Type"] = "application/json"
+        for (key, value) in headers {
+            self.headers[key] = value
         }
     }
-}
 
-public enum HTTPMethod: String {
-    case get     = "GET"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-}
+    func getRequest<ResponseType: Decodable>(path: EndPoint, parameters: [String: String]) -> Single<ResponseType> {
+        sendRequest(request: buildRequest(path: path, urlParameters: parameters))
+    }
 
-class NetworkManager {}
+    func sendRequest<ResponseType: Decodable>(request: URLRequest) -> Single<ResponseType> {
+
+        return  Single<ResponseType>.create { observer in
+            let session = URLSession.shared
+            self.task = session.dataTask(with: request, completionHandler: { data, response, apiError in
+
+                if let err = apiError {
+                    observer(.error(err))
+                } else if let response = response as? HTTPURLResponse {
+                    switch response.statusCode {
+                    case 200...300:
+                        guard let responseData = data else {
+                            observer(.error(DataError.dataNotFound))
+                            return
+                        }
+                        do {
+                            let apiResponse = try JSONDecoder().decode(ResponseType.self, from: responseData)
+                            observer(.success(apiResponse))
+                        } catch {
+                            observer(.error(DataError.unableToDecode))
+                        }
+                    default:
+                        observer(.error(DataError.timeout))
+                    }
+                }
+                observer(.error(DataError.dataNotFound))
+            })
+            self.task?.resume()
+            return Disposables.create {
+                self.task?.cancel()
+            }
+        }
+    }
+
+    func buildRequest(
+        path: EndPoint,
+        httpMethod: HTTPMethod = .get,
+        urlParameters: [String: String] = [:],
+        body: Encodable? = nil
+    ) -> URLRequest {
+
+        let url = URL(string: self.baseUrl.rawValue)!.appendingPathComponent(path.rawValue)
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = urlParameters.map {key, value in
+            URLQueryItem(name: key,
+                         value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
+        }
+        var request = URLRequest(url: (urlComponents?.url!)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60.0)
+
+        request.httpMethod = httpMethod.rawValue
+        request.allHTTPHeaderFields = headers
+        return request
+    }
+
+    func cancel() {
+        self.task?.cancel()
+    }
+}

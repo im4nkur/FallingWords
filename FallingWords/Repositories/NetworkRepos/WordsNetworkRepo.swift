@@ -10,7 +10,13 @@ import Foundation
 import RxSwift
 
 class WordsNetworkRepo: WordsRepo {
+    let networkManager: NetworkManagerType
+
+    init(networkManager: NetworkManagerType) {
+        self.networkManager = networkManager
+    }
+
     func getAllWords() -> Single<[Word]> {
-        return .just([])
+        networkManager.getRequest(path: .words, parameters: [:])
     }
 }
