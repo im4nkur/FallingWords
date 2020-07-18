@@ -43,6 +43,9 @@ This project follows MVVM along with other classes for Networking and Data Repos
  - The UI/UX can definitely be improved.
  - The Game play logic should be in a Game Manager instead of View Model.
 
+### Known Issue
+ - Game play is not handled when the app goes into the background.
+ 
 ## Screenshots
 
 ![Start](FallingWords/Screenshots/Start.png)
